@@ -22,6 +22,8 @@ export default () => {
 
   useEffect(() => {
     initBoard();
+    localStorage.setItem('red', "0");
+    localStorage.setItem('yellow', "0");
   }, [])
 
   const startGame = () => {
@@ -70,7 +72,7 @@ export default () => {
     for (i = height - 1; i >= 0; i--)
       if (boardData[i][index] === "gray")
         break;
-    if (i == -1) return;
+    if (i === -1) return;
     let tempData = boardData;
     tempData[i][index] = turn.toLowerCase();
 
@@ -88,7 +90,7 @@ export default () => {
         </div>
       </div>
 
-      <div className="border-gray-800 border-2 flex flex-wrap" style={{ width: 350, height: 300 }}>
+      <div className="flex flex-wrap" style={{ width: 360, height: 300 }}>
         {
           boardData.map((row, index) =>
             row.map((cell, index1) => {
@@ -101,7 +103,7 @@ export default () => {
       </div>
       <div className="flex flex-wrap" style={{ width: 350, height: 50 }}>
         {
-          isFinished ? <button onClick={(e) => startGame()} className="bg-white" style={{ width: 330, height: 49, marginLeft: 10 }}>Start</button> :
+          isFinished ? <button onClick={(e) => startGame()} className="bg-white" style={{ width: 330, height: 49, marginLeft: 10 }}>Play again</button> :
             boardData[0] && boardData[0].map((cell, index) => {
               return <button key={cell + index} onClick={(e) => handleDrop(index)} className="bg-white" style={{ width: 49, height: 49, marginRight: 1 }}>Drop</button>
             })
