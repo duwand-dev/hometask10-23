@@ -1,8 +1,17 @@
-import './App.css';
+import "./App.css";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { AuthPage } from "./Pages/Auth";
+import { MainPage } from "./Pages/MainPage";
 
 function App() {
   return (
-    <h1 className="text-3xl font-bold underline">Tailwind CSS is working</h1>
+    <BrowserRouter>
+      <Routes>
+        <Route index path="/auth" Component={AuthPage} />
+        <Route index path="/main-page" Component={MainPage} />
+        <Route path="*" element={<Navigate to="/auth" />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

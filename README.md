@@ -1,46 +1,35 @@
-# Getting Started with Create React App
+# This is Jack's HomeTask for 10/23
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## This is a 2-player game of Connect Four with TypeScript and React..
 
-## Available Scripts
+This will help you spending you mean time enjoyable. Having `Fun`!
 
-In the project directory, you can run:
+## Techstacks
 
-### `npm start`
+`React`, `TailwindCss`, `Babel`, `Typescript`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Requirements
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. **The current project structure is unorganized. Clean / refine the project structure before getting started.**
+2. **The board should be 7 wide by 6 high**
+3. **It should alternate between the 'red' and 'yellow' players turn**
+4. **Clicking the "Drop" button should drop a token of the current player's to the bottom-most free position**
+5. **Clicking the "Drop" button on a full column should have no effect**
+6. **If either player gets four in a row (horizontally, vertically, or diagonally)**
+   1. The "COLOR's turn" heading should be replaced by "COLOR won!"
+   2. The "Drop" buttons should be replaced by a "Play again" button
+7. **If the board is full and there is no winner**
+   1. The "COLOR's turn" heading should be replaced by "Draw!"
+   2. The "Drop" buttons should be replaced by a "Play again" button
 
-### `npm test`
+## Challenges
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **Replace the 'Drop' button with a representation of the current player's token, e.g. if it's red's turn, show a semi-transparent red token above each column.**
+2. **Keep track of and display how many times each player has won. Save it so the score is tracked even when reloading the page.**
+3. **Try to implement the `checkForWinner` function yourself: it should check for four tokens in a row in the horizontal, vertical, and diagonal directions.**
 
-### `npm run build`
+## How to use?
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+You can just click the drop buttons to play!!! Hints will help you easy to place your tokens.
+If one player wins, it'll inform you!
+The winner's information is store on the browser.
