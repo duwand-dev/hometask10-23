@@ -30,6 +30,9 @@ This will help you spending you mean time enjoyable. Having `Fun`!
 
 ## How to use?
 
+To run this app, you can use `npm install` command to install all required node modules.
+Then, you have to use `npm run start` command to run the app. That's it!
+
 You can just click the drop buttons to play!!! Hints will help you easy to place your tokens.
 If one player wins, it'll inform you!
 The winner's information is store on the browser.
