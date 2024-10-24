@@ -21,11 +21,14 @@ This will help you spending you mean time enjoyable. Having `Fun`!
    1. The "COLOR's turn" heading should be replaced by "Draw!"
    2. The "Drop" buttons should be replaced by a "Play again" button
 
-## Challenges
+## Most Challenging Things
 
 1. **Replace the 'Drop' button with a representation of the current player's token, e.g. if it's red's turn, show a semi-transparent red token above each column.**
+   So, I checked if there are any tokens in columns and showed those semi-transparent tokens.
 2. **Keep track of and display how many times each player has won. Save it so the score is tracked even when reloading the page.**
+   I kept that data inside local storage and solved this problem.
 3. **Try to implement the `checkForWinner` function yourself: it should check for four tokens in a row in the horizontal, vertical, and diagonal directions.**
+   I created a checker function that checks if that game status matches the finishing condition.
 
 ## How to use?
 
