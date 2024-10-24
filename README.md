@@ -1,46 +1,33 @@
-# Getting Started with Create React App
+# This is Jack's HomeTask for 10/23
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## This is a 2-player game of Connect Four with TypeScript and React..
 
-## Available Scripts
+This will help you spending you mean time enjoyable. Having `Fun`!
 
-In the project directory, you can run:
+## Techstacks
 
-### `npm start`
+`React`, `TailwindCss`, `Babel`, `Typescript`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Requirements
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. **The board should be 7 wide by 6 high**
+2. **It should alternate between the 'red' and 'yellow' players turn**
+3. **Clicking the "Drop" button should drop a token of the current player's to the bottom-most free position**
+4. **Clicking the "Drop" button on a full column should have no effect**
+5. **If either player gets four in a row (horizontally, vertically, or diagonally)**
+   1. The "COLOR's turn" heading should be replaced by "COLOR won!"
+   2. The "Drop" buttons should be replaced by a "Play again" button
+6. **If the board is full and there is no winner**
+   1. The "COLOR's turn" heading should be replaced by "Draw!"
+   2. The "Drop" buttons should be replaced by a "Play again" button
 
-### `npm test`
+## Challenge
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Replace the 'Drop' button with a representation of the current player's token, e.g. if it's red's turn, show a semi-transparent red token above each column.**
 
-### `npm run build`
+So, I checked if there are any tokens in columns and showed those semi-transparent tokens. All the information is stored inside two-dimensional array so I had to check the array called BoardData. Checking each column and placing semi-transparent tokens were challenging. I solved it!
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## How to use?
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+To run this app, you can use `npm install` command to install all required node modules.
+Then, you have to use `npm run start` command to run the app. That's it!

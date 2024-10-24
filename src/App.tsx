@@ -1,8 +1,11 @@
-import './App.css';
+import GameBoard from './components/GameBoard';
 
 function App() {
   return (
-    <h1 className="text-3xl font-bold underline">Tailwind CSS is working</h1>
+
+    <div className="size-full bg-white flex justify-center items-center">
+      <GameBoard />
+    </div>
   );
 }
 
