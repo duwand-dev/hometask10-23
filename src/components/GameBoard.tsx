@@ -1,19 +1,25 @@
 import React, { useEffect, useState } from "react";
 import Cell from "./Cell";
 
-const width = 7, height = 6;
+const Width = 7, Height = 6;
+enum ColorTurn {
+  Red,
+  Yellow
+};
+
+const Size = { width: 350, height: 50 };
 
 export default () => {
   const [isFinished, setIsFinished] = useState<boolean>(false);
   const [winner, setWinner] = useState<string>("");
-  const [turn, setTurn] = useState<string>("Red");
+  const [turn, setTurn] = useState<ColorTurn>(ColorTurn.Red);
   const [boardData, setBoardData] = useState<Array<Array<string>>>([]);
 
   const initBoard = () => {
-    let tempData = new Array(height);
-    for (let i = 0; i < height; i++) {
-      tempData[i] = new Array(width);
-      for (let j = 0; j < width; j++)
+    let tempData = new Array(Height);
+    for (let i = 0; i < Height; i++) {
+      tempData[i] = new Array(Width);
+      for (let j = 0; j < Width; j++)
         tempData[i][j] = "gray";
     }
 
@@ -40,25 +46,25 @@ export default () => {
 
   const CheckStatus = () => {
     let count = 0;
-    for (let i = 0; i < height; i++) {
-      for (let j = 0; j < width; j++) {
+    for (let i = 0; i < Height; i++) {
+      for (let j = 0; j < Width; j++) {
         if (boardData[i][j] === "gray") {
           count++;
           continue;
         }
-        if (j + 3 < width && boardData[i][j] === boardData[i][j + 1] && boardData[i][j] === boardData[i][j + 2] && boardData[i][j] === boardData[i][j + 3]) {
+        if (j + 3 < Width && boardData[i][j] === boardData[i][j + 1] && boardData[i][j] === boardData[i][j + 2] && boardData[i][j] === boardData[i][j + 3]) {
           finishGame(boardData[i][j]);
           return;
         }
-        else if (j + 3 < width && i - 3 >= 0 && boardData[i][j] === boardData[i - 1][j + 1] && boardData[i][j] === boardData[i - 2][j + 2] && boardData[i][j] === boardData[i - 3][j + 3]) {
+        else if (j + 3 < Width && i - 3 >= 0 && boardData[i][j] === boardData[i - 1][j + 1] && boardData[i][j] === boardData[i - 2][j + 2] && boardData[i][j] === boardData[i - 3][j + 3]) {
           finishGame(boardData[i][j]);
           return;
         }
-        else if (j + 3 < width && i + 3 < height && boardData[i][j] === boardData[i + 1][j + 1] && boardData[i][j] === boardData[i + 2][j + 2] && boardData[i][j] === boardData[i + 3][j + 3]) {
+        else if (j + 3 < Width && i + 3 < Height && boardData[i][j] === boardData[i + 1][j + 1] && boardData[i][j] === boardData[i + 2][j + 2] && boardData[i][j] === boardData[i + 3][j + 3]) {
           finishGame(boardData[i][j]);
           return;
         }
-        else if (i + 3 < height && boardData[i][j] === boardData[i + 1][j] && boardData[i][j] === boardData[i + 2][j] && boardData[i][j] === boardData[i + 3][j]) {
+        else if (i + 3 < Height && boardData[i][j] === boardData[i + 1][j] && boardData[i][j] === boardData[i + 2][j] && boardData[i][j] === boardData[i + 3][j]) {
           finishGame(boardData[i][j]);
           return;
         }
@@ -69,15 +75,15 @@ export default () => {
   }
   const handleDrop = (index: number) => {
     let i;
-    for (i = height - 1; i >= 0; i--)
+    for (i = Height - 1; i >= 0; i--)
       if (boardData[i][index] === "gray")
         break;
     if (i === -1) return;
     let tempData = boardData;
-    tempData[i][index] = turn.toLowerCase();
+    tempData[i][index] = turn === ColorTurn.Red ? "red" : "yellow";
 
     setBoardData(tempData);
-    setTurn(turn === "Red" ? "Yellow" : "Red");
+    setTurn(turn === ColorTurn.Red ? ColorTurn.Yellow : ColorTurn.Red);
 
     CheckStatus();
   }
@@ -92,16 +98,16 @@ export default () => {
 
       <div className="flex flex-wrap" style={{ width: 360, height: 300 }}>
         {
-          boardData.map((row, index) =>
-            row.map((cell, index1) => {
-              return <Cell key={cell + index1} row={index} col={index1} color={cell}
-                turn={turn}
-                hint={(index === height - 1 && boardData[index][index1] === "gray") || boardData[index][index1] === "gray" && boardData[index + 1][index1] !== "gray" ? true : false} />
+          boardData.map((row, rindex) =>
+            row.map((cell, cindex) => {
+              return <Cell key={cell} row={rindex} col={cindex} color={cell}
+                turn={turn === ColorTurn.Red ? "red" : "yellow"}
+                hint={(rindex === Height - 1 && boardData[rindex][cindex] === "gray") || boardData[rindex][cindex] === "gray" && boardData[rindex + 1][cindex] !== "gray" ? true : false} />
             })
           )
         }
       </div>
-      <div className="flex flex-wrap" style={{ width: 350, height: 50 }}>
+      <div className="flex flex-wrap" style={Size}>
         {
           isFinished ? <button onClick={(e) => startGame()} className="bg-white" style={{ width: 330, height: 49, marginLeft: 10 }}>Play again</button> :
             boardData[0] && boardData[0].map((cell, index) => {
@@ -109,7 +115,7 @@ export default () => {
             })
         }
       </div>
-      <div className="flex justify-center items-center" style={{ width: 350, height: 50 }}>
+      <div className="flex justify-center items-center" style={Size}>
         <div className="font-serif text-sm text-red-800 outline-1 outline-blue-500 drop-shadow-2xl select-none">
           {`RED : ${localStorage.getItem("red")} times, YELLOW : ${localStorage.getItem('yellow')} times won the Game!`}
         </div>

@@ -21,20 +21,13 @@ This will help you spending you mean time enjoyable. Having `Fun`!
    1. The "COLOR's turn" heading should be replaced by "Draw!"
    2. The "Drop" buttons should be replaced by a "Play again" button
 
-## Most Challenging Things
+## Challenge
 
-1. **Replace the 'Drop' button with a representation of the current player's token, e.g. if it's red's turn, show a semi-transparent red token above each column.**
-   So, I checked if there are any tokens in columns and showed those semi-transparent tokens.
-2. **Keep track of and display how many times each player has won. Save it so the score is tracked even when reloading the page.**
-   I kept that data inside local storage and solved this problem.
-3. **Try to implement the `checkForWinner` function yourself: it should check for four tokens in a row in the horizontal, vertical, and diagonal directions.**
-   I created a checker function that checks if that game status matches the finishing condition.
+**Replace the 'Drop' button with a representation of the current player's token, e.g. if it's red's turn, show a semi-transparent red token above each column.**
+
+So, I checked if there are any tokens in columns and showed those semi-transparent tokens. All the information is stored inside two-dimensional array so I had to check the array called BoardData. Checking each column and placing semi-transparent tokens were challenging. I solved it!
 
 ## How to use?
 
 To run this app, you can use `npm install` command to install all required node modules.
 Then, you have to use `npm run start` command to run the app. That's it!
-
-You can just click the drop buttons to play!!! Hints will help you easy to place your tokens.
-If one player wins, it'll inform you!
-The winner's information is store on the browser.
